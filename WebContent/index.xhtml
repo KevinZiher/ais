@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head>
+<link rel="stylesheet" type="text/css" href="dodajanje.css"> </link>
+<meta charset="UTF-8"></meta>
+<title>Registracija člana</title>
+</head>
+<body>
+<a href="http://localhost:8080/Naloga1/faces/clani.xhtml">Člani</a>
+<hr></hr>
+	<f:view>
+		<h:form>
+		Registracija člana
+			<br />
+				Ime:
+				<h:inputText value="#{Clani.novClan.ime}" required="true" />
+			<br />
+				Priimek:
+				<h:inputText value="#{Clani.novClan.priimek}" required="true" />
+			<br />
+				Spol:
+				<h:inputText value="#{Clani.novClan.spol}" required="true" />
+			<br />
+				Datum rojstva:
+				<input type="date" jsf:value="#{Clani.novClan.datum_roj.time}" required="true">
+				<f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
+				</input>
+			<br />
+				Datum vpisa:
+				<input type="date" jsf:value="#{Clani.novClan.datum_vp.time}" required="true">
+				<f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
+				</input>
+			<br />
+				Šifra:
+				<h:inputText value="#{Clani.novClan.sifra}" required="true" />
+				E-Mail:
+				<h:inputText value="#{Clani.novClan.email}" required="true" />
+				<br />
+			<h:commandButton value="Dodaj" action="clani.xhtml"
+				actionListener="#{Clani.dodajClana}" ></h:commandButton>
+		</h:form>
+	</f:view>
+</body>
+</html>

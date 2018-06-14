@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<link rel="stylesheet" type="text/css" href="clani.css"></link>
+<meta charset="UTF-8" />
+<title>Vse vaje</title>
+</head>
+<body>
+	<a href="http://localhost:8080/Naloga1/faces/clani.xhtml">Člani</a>
+	<a href="http://localhost:8080/Naloga1/faces/dodajvajo.xhtml">Dodaj
+		vaje</a>
+	<hr></hr>
+	<f:view>
+		<h:outputText value="Seznam vseh vaj:" style="font-weight:bold" />
+		<h:form>
+		<h:dataTable value="#{vaja.vseVaje}" var="v">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Ime vaje" />
+				</f:facet>
+				<h:commandLink action="#{vaja.setIzbranaVaja(v)}"
+						value="#{v.sifra}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Cilj" />
+				</f:facet>
+				<h:outputText value="#{v.cilj}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Naprava" />
+				</f:facet>
+				<h:outputText value="#{v.naprava}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Opis" />
+				</f:facet>
+				<h:outputText value="#{v.opis}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Slika" />
+				</f:facet>
+				<h:outputText value="#{v.slika}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Video" />
+				</f:facet>
+				<h:outputText value="#{v.video}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</f:view>
+</body>
+</html>

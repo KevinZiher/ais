@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<link rel="stylesheet" type="text/css" href="clani.css"> </link>
+<meta charset="UTF-8" />
+<title>Vsi clani</title>
+</head>
+<body>
+	<a href="http://localhost:8080/Naloga1/faces/index.xhtml">Dodaj
+		člana</a>	
+		<a href="http://localhost:8080/Naloga1/faces/vaje.xhtml">Vaje</a>
+	<hr></hr>
+	<f:view>
+	<h:outputText value="Seznam vseh oseb:" style="font-weight:bold"/>
+		<h:form>
+			<h:dataTable value="#{Clani.vseClane}" var="o">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Priimek" />
+					</f:facet>
+					<h:outputText value="#{o.priimek}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ime" />
+					</f:facet>
+					<h:outputText value="#{o.ime}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Spol" />
+					</f:facet>
+					<h:outputText value="#{o.spol}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Datum rojstva" />
+					</f:facet>
+					<h:outputText value="#{o.datum_roj.time}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Datum včlanstva" />
+					</f:facet>
+					<h:outputText value="#{o.datum_vp.time}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="E-Mail" />
+					</f:facet>
+					<h:outputText value="#{o.email}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Šifra člana" />
+					</f:facet>
+					<h:commandLink action="#{Meritve.IzbranClanim(o)}"
+						value="#{o.sifra}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</f:view>
+</body>
+</html>

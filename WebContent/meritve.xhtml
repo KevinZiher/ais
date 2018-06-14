@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<h:head>
+<link rel="stylesheet" type="text/css" href="meritve.css"></link>
+<meta charset="UTF-8" />
+<title>Vsi clani</title>
+</h:head>
+<h:body>
+	<a href="http://localhost:8080/Naloga1/faces/clani.xhtml">Člani</a>
+	<hr></hr>
+	<f:view>
+	Pozdravljeni: <h:outputText value="#{dodajmeritev.izbranaOseba.ime}"></h:outputText>
+		<h:dataTable value="#{Meritve.izbranClanim}">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Ime" />
+				</f:facet>
+				<h:outputText value="#{Meritve.izbranClanim.ime}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Priimek" />
+				</f:facet>
+				<h:outputText value="#{Meritve.izbranClanim.priimek}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Spol" />
+				</f:facet>
+				<h:outputText value="#{Meritve.izbranClanim.spol}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Datum Rojstva" />
+				</f:facet>
+				<h:outputText value="#{Meritve.izbranClanim.datum_roj.time}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Datum vpisa" />
+				</f:facet>
+				<h:outputText value="#{Meritve.izbranClanim.datum_vp.time}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Šifra" />
+				</f:facet>
+				<h:outputText value="#{Meritve.izbranClanim.sifra}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="E-Mail" />
+				</f:facet>
+				<h:outputText value="#{Meritve.izbranClanim.email}" />
+			</h:column>
+		</h:dataTable>
+		<BR />
+Vaše meritve:
+<hr></hr>
+		<h:dataTable value="#{Meritve.vse}" var="m">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Datum meritve" />
+				</f:facet>
+				<h:outputText value="#{m.datum_mer.time}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Višina" />
+				</f:facet>
+				<h:outputText value="#{m.visina}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Obseg pasu" />
+				</f:facet>
+				<h:outputText value="#{m.obseg}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Teža" />
+				</f:facet>
+				<h:outputText value="#{m.teza}" />
+			</h:column>
+		</h:dataTable>
+	
+	<BR />
+	<a href="http://localhost:8080/Naloga1/faces/dodajmeritve.xhtml">Dodaj
+		meritve</a><a href="http://localhost:8080/Naloga1/faces/dodajclanarino.xhtml">Dodaj
+		članarino</a>
+		<BR/>
+		<BR/>
+	<h:form>
+			OD:
+			<input type="date" jsf:value="#{dodajmeritev.od.time}">
+		<f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
+		</input>
+			DO:
+			<input type="date" jsf:value="#{dodajmeritev.doo.time}">
+		<f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
+		</input>
+		<h:commandLink action="izdelajgraf.xhtml" value="Izdelaj graf"></h:commandLink>
+	</h:form>
+	</f:view>
+</h:body>
+</html>

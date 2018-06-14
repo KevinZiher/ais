@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head>
+<link rel="stylesheet" type="text/css" href="dodajanje.css"> </link>
+<meta charset="UTF-8"></meta>
+<title>Dodajanje vaje</title>
+</head>
+<body>
+<a href="http://localhost:8080/Naloga1/faces/clani.xhtml">Člani</a>
+<a href="http://localhost:8080/Naloga1/faces/vaje.xhtml">Vaje</a>
+<hr></hr>
+	<f:view>
+		<h:form>
+		Dodajanje vaje
+			<br />
+			<br />
+				Ime vaje:
+				<h:inputText value="#{vaja.novaVaja.sifra}" required="true" />
+			<br />
+				Cilj:
+				<h:inputText value="#{vaja.novaVaja.cilj}" required="true" />
+			<br />
+				Naprava:
+				<h:inputText value="#{vaja.novaVaja.naprava}" required="true" />
+			<br />
+				Opis:
+				<h:inputText value="#{vaja.novaVaja.opis}" required="true" />
+			<br />
+				Slika:
+				<h:inputText value="#{vaja.novaVaja.slika}" required="true" />
+			<br />
+				Video:
+				<h:inputText value="#{vaja.novaVaja.video}" required="true" />
+			<h:commandButton value="Dodaj" action="vaje.xhtml"
+				actionListener="#{vaja.dodajVajo}" ></h:commandButton>
+		</h:form>
+	</f:view>
+</body>
+</html>

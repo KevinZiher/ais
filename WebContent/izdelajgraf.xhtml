@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" type="text/css" href="meritve.css"></link>
+<title>Izdelovalec grafov</title>
+</h:head>
+<h:body>
+<h:form>
+<p:commandLink value="ITM/Teža" action="response">
+<f:ajax listener="#{dodajmeritev.preklopi()}" event="click" render="@all"></f:ajax>
+</p:commandLink>
+</h:form>
+<p:chart rendered="#{dodajmeritev.prikazitm}" type="line" model="#{zaGrafe.getItmGraf(dodajmeritev.izbranaOseba.sifra,dodajmeritev.od,dodajmeritev.doo)}"></p:chart>
+<p:chart rendered="#{dodajmeritev.prikazteza}" type="line" model="#{zaGrafe.getTezaGraf(dodajmeritev.izbranaOseba.sifra,dodajmeritev.od,dodajmeritev.doo)}"></p:chart>
+</h:body>
+</html>

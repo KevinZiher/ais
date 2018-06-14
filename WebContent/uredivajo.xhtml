@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<h:head>
+	<link rel="stylesheet" type="text/css" href="meritve.css"></link>
+	<meta charset="UTF-8" />
+	<title>Urejanje vaje</title>
+</h:head>
+<h:body>
+	<a href="http://localhost:8080/Naloga1/faces/vaje.xhtml">Vaje</a>
+	<hr></hr>
+	<f:view>
+	Izbrana vaja: <h:outputText value="#{vaja.izbranaVaja.sifra}"></h:outputText>
+	<h:form>
+		<h:dataTable value="#{vaja.izbranaVaja}">
+		
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Ime vaje" />
+				</f:facet>
+				<h:outputText value="#{vaja.izbranaVaja.sifra}" name="sifra" />
+				<hr></hr>
+				<h:inputText value="#{vaja.novaVaja.sifra}"	name="cilj" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Cilj" />
+				</f:facet>
+				<h:outputText value="#{vaja.izbranaVaja.cilj}"	name="cilj" />
+				<hr></hr>
+				<h:inputText value="#{vaja.novaVaja.cilj}"	name="cilj" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Naprava" />
+				</f:facet>
+				<h:outputText value="#{vaja.izbranaVaja.naprava}" name="naprava"/>
+				<hr></hr>
+				<h:inputText value="#{vaja.novaVaja.naprava}" name="naprava"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Opis" />
+				</f:facet>
+				<h:outputText value="#{vaja.izbranaVaja.opis}" name="opis"/>
+				<hr></hr>
+				<h:inputText value="#{vaja.novaVaja.opis}" name="opis"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Slika" />
+				</f:facet>
+				<h:outputText value="#{vaja.izbranaVaja.slika}" name="slika" />
+				<hr></hr>
+				<h:inputText value="#{vaja.novaVaja.slika}" name="slika"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Video" />
+				</f:facet>
+				<h:outputText value="#{vaja.izbranaVaja.video}" name="video" />
+				<hr></hr>
+				<h:inputText value="#{vaja.novaVaja.video}" name="video" />
+			</h:column>
+		</h:dataTable>
+		
+		<br></br>
+		<h:commandButton value="Uredi" action="vaje.xhtml"
+				actionListener="#{vaja.posodobi()}" ></h:commandButton>
+		</h:form>
+		<h:form>
+		<h:commandButton action="#{vaja.zbrisi(vaja.izbranaVaja)}" value="Izbriši vajo"></h:commandButton>
+	</h:form>
+	</f:view>
+</h:body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head>
+<link rel="stylesheet" type="text/css" href="dodajanje.css"> </link>
+<meta charset="UTF-8"></meta>
+<title>Dodajanje meritev</title>
+</head>
+<body>
+ <a href="http://localhost:8080/Naloga1/faces/clani.xhtml">Člani</a>
+ <hr></hr>
+
+	<f:view>
+		<h:form>
+		Dodajanje meritev
+			<br />
+			ime: <h:outputText value="#{Meritve.izbranClanim.ime}"></h:outputText>
+			<br />
+				Datum meritve:
+				<input type="date" jsf:value="#{Meritve.novaMeritev.datum_mer.time}"
+				required="true">
+			<f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
+			</input>
+			<br />
+				Vižina:
+				<h:inputText value="#{Meritve.novaMeritev.visina}" required="true" />
+			<br />
+				Obseg pasu:
+				<h:inputText value="#{Meritve.novaMeritev.obseg}" required="true" />
+			<br />
+				Teža:
+				<h:inputText value="#{Meritve.novaMeritev.teza}" required="true" />
+			<br />
+			<h:commandButton value="Dodaj" action="meritve.xhtml"
+				actionListener="#{Meritve.dodajMeritev}"></h:commandButton>
+		</h:form>
+	</f:view>
+</body>
+</html>

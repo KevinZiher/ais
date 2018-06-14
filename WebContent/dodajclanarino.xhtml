@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head>
+<link rel="stylesheet" type="text/css" href="dodajanje.css"></link>
+<meta charset="UTF-8"></meta>
+<title>Dodajanje članarine</title>
+</head>
+<body>
+	<a href="http://localhost:8080/Naloga1/faces/clani.xhtml">Člani</a>
+	<hr></hr>
+
+	<f:view>
+		<h:form>
+		Dodajanje članarine
+			<br />
+			Ime: <h:outputText value="#{dodajmeritev.izbranaOseba.ime}"></h:outputText>
+			<br />
+			Izberite članarino
+	    <h:selectOneMenu value="#{dodajmeritev.izbrana}">
+   			<f:selectItem itemValue="Obicajna" itemLabel="Običajna" />
+   			<f:selectItem itemValue="Mesecna" itemLabel="Mesečna" />
+   			<f:selectItem itemValue="Letna" itemLabel="Letna" />
+   		</h:selectOneMenu>
+		
+		<br /><br />	    
+    	        <h:commandButton value="Dodaj" action="meritve.xhtml"
+				actionListener="#{dodajmeritev.dodajclanarino}"></h:commandButton>
+    	</h:form>
+	</f:view>
+</body>
+</html>
